@@ -1,0 +1,37 @@
+/* Import Google Fonts - Poppins */
+/* This import should ideally be placed at the very top of your main CSS file. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Tailwind CSS directives */
+/* These directives are crucial for Tailwind to inject its base styles, components, and utilities. */
+/* They must appear before any custom utility classes you define. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Global Styles */
+/* These styles apply to the entire document body. */
+body {
+  /* Apply the imported Poppins font as the primary font. */
+  font-family: "Poppins", sans-serif;
+
+  /* Set a default font weight.
+     Note: A font-weight of 200 (Extra-light) can sometimes be difficult to read
+     on screens, especially for smaller text. Consider using 300 (Light) or 400 (Regular)
+     for better readability across your application, or apply specific weights
+     to individual elements using Tailwind classes like 'font-light' or 'font-normal'. */
+  font-weight: 200;
+
+  /* Ensure the font style is normal, overriding any potential inherited italics. */
+  font-style: normal;
+
+  /* Apply a light blue background color using Tailwind's utility class. */
+  /* This provides a soft, consistent background for your application. */
+  @apply bg-blue-50 text-neutral-700;
+
+  /* Optional: Add smooth scrolling for anchor links */
+  /* scroll-behavior: smooth; */
+}
+
+/* You can add more custom styles below this section if needed, */
+/* but always prefer Tailwind utility classes where possible for consistency. */
