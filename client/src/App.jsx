@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import fetchUserDetails from './utils/fetchUserDetails.js';
 import { setUserDetails } from './store/userSlice.js';
 import { useDispatch } from 'react-redux';
-import { setAllCategory } from './store/productSlice.js';
+import { setAllCategory, setAllSubCategory } from './store/productSlice.js';
 import SummaryApi from './common/SummaryApi.js';
 
 function App() {
@@ -41,9 +41,27 @@ dispatch(setUserDetails(userData.data));
         }
      }
 
+    const fetchSubCategory = async()=>{
+    try {
+        const response = await Axios({
+            ...SummaryApi.getSubCategory
+        })
+        const { data : responseData } = response
+
+        if(responseData.success){
+          dispatch(setAllSubCategory(responseData.data))
+        }
+    } catch (error) {
+        //Not Defined
+    }finally{
+      //Not Defined
+    }
+  }
+
   useEffect(() => {
     fetchUser();
     fetchCategory();
+    fetchSubCategory;
   }, []);
   return (
     <>
