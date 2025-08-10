@@ -1,23 +1,60 @@
 import React from 'react'
 import { IoClose } from 'react-icons/io5'
 
-const ConfirmBox = ({cancel,confirm,close}) => {
+const ConfirmBox = ({ cancel, confirm, close }) => {
   return (
-      <div className='fixed top-0 bottom-0 right-0 left-0 z-50 bg-neutral-800 bg-opacity-70 p-4 flex justify-center items-center'>
-          <div className='bg-white w-full max-w-md p-4 rounded'>
-              <div className='flex justify-between items-center gap-3'>
-                  <h1 className='font-semibold'>Permanent Delete</h1>
-                  <button onClick={close}>
-                      <IoClose size={25} />
-                  </button>
-              </div>
-              <p className='my-4'>Are you sure permanent delete ?</p>
-              <div className='w-fit ml-auto flex items-center gap-3'>
-                  <button onClick={cancel} className='px-4 py-1 border rounded border-red-500 text-red-500 hover:bg-red-500 hover:text-white'>Cancel</button>
-                  <button onClick={confirm} className='px-4 py-1 border rounded border-green-600 text-green-600 hover:bg-green-600 hover:text-white'>Confirm</button>
-              </div>
-          </div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-50">
+      <div className="bg-white w-full max-w-sm rounded-xl shadow-xl p-6 animate-fadeUp">
+        
+        {/* Header */}
+        <div className="flex justify-between items-center pb-2 border-b">
+          <h1 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+            ⚠️ Permanent Delete
+          </h1>
+          <button
+            onClick={close}
+            className="p-1 rounded-full hover:bg-red-50 transition"
+            aria-label="Close confirmation"
+          >
+            <IoClose size={22} className="text-gray-600 hover:text-red-500" />
+          </button>
+        </div>
+        
+        {/* Message */}
+        <p className="mt-5 mb-6 text-base text-gray-700 font-medium">
+          Are you sure you want to permanently delete?
+        </p>
+        
+        {/* Actions */}
+        <div className="flex justify-end gap-3">
+          <button
+            onClick={cancel}
+            className="px-5 py-2 rounded-md border border-red-600 text-red-600 font-semibold
+              transition-all hover:bg-red-600 hover:text-white active:scale-95"
+          >
+            Cancel
+          </button>
+          <button
+            onClick={confirm}
+            className="px-5 py-2 rounded-md border border-green-600 text-green-600 font-semibold
+              transition-all hover:bg-green-600 hover:text-white active:scale-95"
+          >
+            Confirm
+          </button>
+        </div>
       </div>
+      <style>
+        {`
+          @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(20px) scale(0.96);}
+            100% { opacity: 1; transform: translateY(0) scale(1);}
+          }
+          .animate-fadeUp {
+            animation: fadeUp 0.33s cubic-bezier(.34,1.56,.64,1) forwards;
+          }
+        `}
+      </style>
+    </div>
   )
 }
 
