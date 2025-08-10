@@ -9,6 +9,9 @@ import { useDispatch } from 'react-redux';
 import { setAllCategory, setAllSubCategory } from './store/productSlice.js';
 import SummaryApi from './common/SummaryApi.js';
 
+import Axios from './utils/Axios.jsx';
+
+
 function App() {
   const dispatch = useDispatch();
 
@@ -56,12 +59,12 @@ dispatch(setUserDetails(userData.data));
     }finally{
       //Not Defined
     }
-  }
+    }
 
   useEffect(() => {
     fetchUser();
     fetchCategory();
-    fetchSubCategory;
+    fetchSubCategory();
   }, []);
   return (
     <>
